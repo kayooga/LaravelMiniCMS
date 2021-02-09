@@ -13,6 +13,8 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        //
+        //postsTableに作成したいデータの数を指定する
+        // \App\Models\Post::factory(50)->create();
+        
     }
 }

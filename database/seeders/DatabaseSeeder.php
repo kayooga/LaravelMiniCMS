@@ -14,5 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        //postsTableに作成したいデータの数を指定する
+        \App\Models\Post::factory(50)->create();
+
     }
 }
