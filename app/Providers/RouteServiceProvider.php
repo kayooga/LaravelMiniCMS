@@ -54,8 +54,10 @@ class RouteServiceProvider extends ServiceProvider
 
             //管理画面
             //prefix グループ内の各ルートに対して頭につく文字列 adminなんちゃら
+            //middlewareにauthを追加することでログインしないとアクセスできないようにする
+            //middlewareに二つ以上渡すときは配列の形にする
             Route::prefix('admin')
-                ->middleware('web')
+                ->middleware(['web', 'auth'])
                 ->namespace($this->namespace . '\Back')
                 ->as('back.')
                 ->group(base_path('routes/back.php'));

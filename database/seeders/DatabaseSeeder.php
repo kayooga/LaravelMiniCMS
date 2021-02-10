@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         //postsTableに作成したいデータの数を指定する
         \App\Models\Post::factory(50)->create();
+        $this->call(UserSeeder::class);
 
     }
 }

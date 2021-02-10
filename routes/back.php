@@ -1,6 +1,5 @@
 <?php
 use Illuminate\Support\Facades\Route;
  
-Route::get('/', function () {
-    echo 'back';
-});
+//dashboardControllerはシングルアクション(__invoke)なのでアクション名はいらない
+Route::get('/', 'DashboardController')->name('dashboard');
