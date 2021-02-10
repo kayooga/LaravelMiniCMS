@@ -20,7 +20,7 @@
                   {{-- modelで取得した年月日を表示 --}}
                   <td>{{ $post->published_format }}</td>
                   {{-- link_to_route(リンク先,リンクのアンカーテキスト,リンク先に渡したい変数(配列も可)) --}}
-                  <td>{{!! link_to_route('front.posts.show', $post->title, $post) !!}}</td>
+                  <td>{!! link_to_route('front.posts.show', $post->title, $post) !!}</td>
                 </tr>              
             @endforeach
         </table>

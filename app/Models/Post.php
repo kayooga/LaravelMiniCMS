@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Post extends Model
 {
@@ -23,7 +24,7 @@ class Post extends Model
     //公開のみ表示
     public function scopePublic(Builder $query)
     {
-        return $quey->where('is_public', true);
+        return $query->where('is_public', true);
     }
 
     //公開記事一覧取得
