@@ -1,20 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Front;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * 一覧画面
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Controllers\View\View
      */
     public function index()
     {
-        //
+        //ModelからDBデータをもってくる
+        $posts = Post::publicList();
+        return view('front.posts.index', compact('posts'));
     }
 
     /**
@@ -39,14 +42,15 @@ class PostController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * 詳細画面
      *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param  int $id
+     * @return \Illuminate\Contracts\View\View
      */
-    public function show(Post $post)
+    public function show(int $id)
     {
-        //
+        $post = Post::scopePublicFindById($id);
+        return view('front.post.show', compact('post'));
     }
 
     /**

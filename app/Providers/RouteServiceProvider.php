@@ -45,15 +45,15 @@ class RouteServiceProvider extends ServiceProvider
 
             //フロント画面
             //as ルートを設定するときのルート名
-            //group
-            //base_path
+            //group 一括して適用させる
+            //base_path ルートディレクトリの完全修飾パスを取得する
             Route::middleware('web')
                 ->namespace($this->namespace . '\Front')
                 ->as('front.')
                 ->group(base_path('routes/front.php'));
 
             //管理画面
-            //prefix
+            //prefix グループ内の各ルートに対して頭につく文字列 adminなんちゃら
             Route::prefix('admin')
                 ->middleware('web')
                 ->namespace($this->namespace . '\Back')
