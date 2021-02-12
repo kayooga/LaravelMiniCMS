@@ -49,4 +49,26 @@ class Post extends Model
         return $this->published_at->format('Y年m月d日');
     }
 
+    //リレーションの設定
+    //blengsTo 1対多
+    //users_tableに所属しますよ～
+    //カラム名がリレーション先の(モデル_id)でない場合は第二引数に指定する
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    protected static function boot()
+    {
+        //親モデル(Illuminate\Database\Eloquent\Model)のbootメソッド(同名メソッド)を呼び出す
+        parent::boot();
+
+        //保存時user_idをログインユーザーに設定
+        //self::saving このイベント発生時にしたい処理
+        //\Auth:id その時ログインしているユーザー
+        self::saving(function($post) {
+                $post->user_id = \Auth::id();
+        });
+    }
+
 }

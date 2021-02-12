@@ -16,6 +16,7 @@ $title = '投稿一覧';
                     <th scope="col" style="width: 4.3em">状態</th>
                     <th scope="col" style="width: 9em">公開日</th>
                     <th scope="col" style="width: 12em">編集</th>
+                    <th scope="col">編集者</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,6 +45,8 @@ $title = '投稿一覧';
                             ]) }}
                         {{ Form::close() }}
                     </td>
+                    {{-- ポストからユーザーのネームを取り出す --}}
+                    <td>{{ $post->user->name }}</td>
                 </tr>
             @endforeach
             </tbody>

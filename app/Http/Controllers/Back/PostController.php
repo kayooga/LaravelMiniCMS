@@ -16,7 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest('id')->paginate(20);
+        //Post::with('user') 必要な数だけクエリを発行する
+        $posts = Post::with('user')->latest('id')->paginate(20);
         return view('back.posts.index', compact('posts'));
     }
 
