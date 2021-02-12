@@ -20,6 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="{{ route('back.dashboard') }}">ダッシュボード</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('back.posts.index') }}">投稿一覧</a></li>
                     <li class="nav-item">
                         <a href="#" class="nav-link" onClick="(function(){
                             document.getElementById('logout-form').submit();
@@ -36,6 +37,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-12">
+                    <x-back.alert />
                     <div class="card">
                         @yield('content')
                     </div>

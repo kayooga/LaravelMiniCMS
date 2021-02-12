@@ -14,11 +14,10 @@
                 <div class="card">
                     <div class="card-header">ログイン</div>
                     <div class="card-body">
-                      {{-- collectiveのフォームの書き方 --}}
-                      {{-- action="login" defaultではpostメソッド--}}
+                        {{-- collectiveのフォームの書き方 --}}
+                        {{-- action="login" defaultではpostメソッド--}}
                         {{ Form::open(['route' => 'login']) }}
                             <div class="form-group">
-                              
                                 {{ Form::label('name', 'ユーザー名') }}
                                 {{ Form::text('name', null, [
                                     'class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : '')
