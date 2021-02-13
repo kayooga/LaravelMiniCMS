@@ -18,9 +18,9 @@ class PostSeeder extends Seeder
 
         //postsTableに作成したいデータの数を指定する
         //\Event::fakeFor コマンドを実行したときにイベントが発生しないようにする処理
-        \Event::fakeFor(function() {
+        \Event::fakeFor(function () {
             Post::factory()->count(50)->create();
         });
-
+        
     }
 }

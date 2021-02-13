@@ -3,21 +3,24 @@
 namespace App\Http\Controllers\Front;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
+use App\Models\Tag;
 use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
     /**
      * 一覧画面
-     *
+     * @param string $tagSlug
      * @return \Illuminate\Controllers\View\View
      */
-    public function index()
+    public function index(string $tagSlug = null)
     {
+        //公開・新しい順に表示
         //ModelからDBデータをもってくる
-        $posts = Post::publicList();
-        return view('front.posts.index', compact('posts'));
+        $posts = Post::publicList($tagSlug);
+        $tags = Tag::all();
+        
+        return view('front.posts.index', compact('posts','tags'));
     }
 
     /**

@@ -7,3 +7,4 @@ Route::get('/', 'DashboardController')->name('dashboard');
 // except 管理画面ではshowだけ使用しない
 // Route::resource CRUDルーティングを一度に行う
 Route::resource('posts','PostController')->except('show');
+Route::resource('tags','TagController')->except('show');
